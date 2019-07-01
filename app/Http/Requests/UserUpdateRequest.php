@@ -16,7 +16,7 @@ class UserUpdateRequest extends FormRequest
     {
         return true;
     }
-
+    
     /**
      * Get the validation rules that apply to the request.
      *
@@ -28,6 +28,15 @@ class UserUpdateRequest extends FormRequest
             'name' => 'required|between:3,25|unique:users,name,' . Auth::id(),
             'email' => 'required|email',
             'introduction' => 'string|max:80',
+            'avatar' => 'mimes:jpeg,bmp,png,gif|dimensions:min_width=208,min_height=208',
         ];
     }
+    
+    public function attributes()
+    {
+        return [
+            'avatar' => '头像图片',
+        ];
+    }
+    
 }
