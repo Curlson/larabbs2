@@ -17025,8 +17025,8 @@ body {
   font-size: 0.9em;
 }
 
-.topics-index-page a,
-.categories-show-page a {
+.topics-index-page .topic-list a,
+.categories-show-page .topic-list a {
   color: #444444;
 }
 

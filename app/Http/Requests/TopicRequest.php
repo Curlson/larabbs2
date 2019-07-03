@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Validation\Rule;
+
 class TopicRequest extends Request
 {
     public function rules()
@@ -12,7 +14,9 @@ class TopicRequest extends Request
             case 'POST':
             {
                 return [
-                    // CREATE ROLES
+                    'title' => 'required|min:2',
+                    'category_id' => ['required', Rule::exists('categories', 'id')],
+                    'body' => 'required|min:3'
                 ];
             }
             // UPDATE
@@ -32,10 +36,12 @@ class TopicRequest extends Request
         }
     }
 
-    public function messages()
+    public function attributes()
     {
         return [
-            // Validation messages
+            'title' => '帖子标题',
+            'category_id' => '分类',
+            'body' => '帖子内容',
         ];
     }
 }
