@@ -49,9 +49,13 @@
               <i class="far fa-edit"></i> 编辑
             </a>
 
-            <a href="#" class="btn btn-outline-secondary btn-sm" role="button">
-              <i class="fa fa-trash-alt"></i> 删除
-            </a>
+            <form action="{{ route('topics.destroy', $topic->id) }}" class="d-inline-block" method="POST" accept-charset="UTF-8" onsubmit="return confirm('确定要删除吗?')">
+              {{ csrf_field() }}
+              {{ method_field('DELETE') }}
+              <button type="submit" class="btn btn-outline-secondary btn-sm">
+                <i class="fa fa-trash-alt"></i> 删除
+              </button>
+            </form>
           </div>
         </div>
       </div>

@@ -12,7 +12,7 @@
     <meat name="description" content="@yield('description', 'LaraBBS 爱好者社区')"></meat>
 
     <!-- Styles -->
-    @yield('styles');
+    @yield('styles')
     <link rel="stylesheet" type="text/css" href="{{ mix('css/app.css') }}">
 </head>
 
